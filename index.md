@@ -22,13 +22,13 @@ Goldmine allows you to apply pivot table logic to any list for powerful data min
 
 Install
 
-{% highlight bash linenos %}
+{% highlight bash %}
 $gem install goldmine
 {% endhighlight %}
 
 Use
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 require "goldmine"
 [1,2,3,4,5,6,7,8,9].pivot { |i| i < 5 }
 {% endhighlight %}
@@ -46,7 +46,7 @@ require "goldmine"
 
 ### Pivot a list of numbers based on whether or not they are less than 5
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot { |i| i < 5 }
@@ -60,7 +60,7 @@ data = list.pivot { |i| i < 5 }
 
 ### Explicitly name a pivot
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot("less than 5") { |i| i < 5 }
@@ -76,7 +76,7 @@ data = list.pivot("less than 5") { |i| i < 5 }
 
 ### Pivot values that are lists themselves
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 list = [
   { :name => "one",   :list => [1] },
@@ -103,7 +103,7 @@ data = list.pivot { |record| record[:list] }
 
 ### Chain pivots together
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot { |i| i < 5 }.pivot { |i| i % 2 == 0 }
@@ -119,7 +119,7 @@ data = list.pivot { |i| i < 5 }.pivot { |i| i % 2 == 0 }
 
 ### Conditionally chain pivots together
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 params = { :divisible_by_two => false, :next_greater_than_five => true }
 list = [1,2,3,4,5,6,7,8,9]
@@ -138,7 +138,7 @@ data = data.pivot("next greater than 5") { |i| i.next > 5 } if params[:next_grea
 
 ### Build a moderately complex dataset of Cities
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 cities = [
   { :name => "San Francisco",
     :state => "CA",
@@ -186,7 +186,7 @@ cities = [
 
 ### Pivot cities by state for population over 750k
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 data = cities
   .pivot("state") { |city| city[:state] }
@@ -257,7 +257,7 @@ Lets try another one.
 
 ### Determine which airlines service cities with fewer than 750k people
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 # operation
 data = cities
   .pivot("airline") { |city| city[:airlines] }
