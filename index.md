@@ -22,7 +22,7 @@ Goldmine allows you to apply pivot table logic to any list for powerful data min
 
 Install
 
-{% endhighlight %}
+{% highlight %}
 $gem install goldmine
 {% endhighlight %}
 
