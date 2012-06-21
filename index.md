@@ -211,7 +211,7 @@ data = cities
 
 Here is a table view of the pivoted city data from above.
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>state</th>
@@ -304,7 +304,7 @@ data = cities
 
 Here is the corresponding table view for the above dataset.
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>airline</th>
