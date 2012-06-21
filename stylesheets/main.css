@@ -1,4 +1,4 @@
-// css from http://kevinburke.bitbucket.org/markdowncss/markdown.css
+/* css from http://kevinburke.bitbucket.org/markdowncss/markdown.css */
 body{
     margin: 0 auto;
     font-family: Georgia, Palatino, serif;
@@ -260,7 +260,7 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-// custom css below this line
+/* hopsoft css below this line */
 
 pre {
   padding: 15px;
