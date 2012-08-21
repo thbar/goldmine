@@ -49,11 +49,11 @@ require "goldmine"
 ### Pivot a list of numbers based on whether or not they are less than 5 {#pivot-a-list-of-numbers-based-on-whether-or-not-they-are-less-than-5}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot { |i| i < 5 }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   true  => [1, 2, 3, 4],
   false => [5, 6, 7, 8, 9]
@@ -63,11 +63,11 @@ data = list.pivot { |i| i < 5 }
 ### Explicitly name a pivot {#explicitly-name-a-pivot}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot("less than 5") { |i| i < 5 }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   { "less than 5" => true }  => [1, 2, 3, 4],
   { "less than 5" => false } => [5, 6, 7, 8, 9]
@@ -79,7 +79,7 @@ data = list.pivot("less than 5") { |i| i < 5 }
 ### Pivot values that are lists themselves {#pivot-values-that-are-lists-themselves}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 list = [
   { :name => "one",   :list => [1] },
   { :name => "two",   :list => [1, 2] },
@@ -88,7 +88,7 @@ list = [
 ]
 data = list.pivot { |record| record[:list] }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   1 => [ { :name => "one",   :list => [1] },
          { :name => "two",   :list => [1, 2] },
@@ -106,11 +106,11 @@ data = list.pivot { |record| record[:list] }
 ### Chain pivots together {#chain-pivots-together}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 list = [1,2,3,4,5,6,7,8,9]
 data = list.pivot { |i| i < 5 }.pivot { |i| i % 2 == 0 }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   [true, false]  => [1, 3],
   [true, true]   => [2, 4],
@@ -172,12 +172,12 @@ cities = [
 ### Pivot cities by state for population over 750k {#pivot-cities-by-state-for-population-over-750k}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 data = cities
   .pivot("state") { |city| city[:state] }
   .pivot("population >= 750k") { |city| city[:population] >= 750000 }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   { "state" => "CA", "population >= 750k" => true }  => [ { :name => "San Francisco", ... } ],
   { "state" => "CA", "population >= 750k" => false } => [ { :name => "Mountain View", ... } ],
@@ -243,12 +243,12 @@ Lets try another one.
 ### Determine which airlines service cities with fewer than 750k people {#determine-which-airlines-service-cities-with-fewer-than-750k-people}
 
 {% highlight ruby %}
-# operation {#operation}
+# operation
 data = cities
   .pivot("airline") { |city| city[:airlines] }
   .pivot("population < 750k") { |city| city[:population] < 750000 }
 
-# resulting data {#resulting-data}
+# resulting data
 {
   { "airline" => "Delta", "population < 750k" => false } => [
     { :name => "San Francisco", ... },
