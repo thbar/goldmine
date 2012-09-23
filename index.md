@@ -381,5 +381,5 @@ Hopefully you can see the potential even though the above examples are somewhat 
 
 ---
 
-{% include disqus.html %}
 {% include forkme.html %}
+{% include disqus.html %}
