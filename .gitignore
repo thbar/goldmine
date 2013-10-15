@@ -1,3 +1,2 @@
-coverage
-*.gem
-_site
+.DS_Store
+
